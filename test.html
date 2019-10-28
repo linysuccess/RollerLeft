@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        body,html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            position: relative;
+            background: #3adabe;
+        }
+        #notice {
+            position: absolute;
+            top:2%;
+            color:#fff;
+            visibility: hidden;
+            width: 100%;
+            height: 40px;
+            overflow-x: hidden;
+            margin: auto 0;
+        }
+        .notice-item {
+            position: absolute;
+            white-space: nowrap;
+            transition: transform 0ms linear;
+        }
+    </style>
+</head>
+<body>
+<div id="notice">
+    <div class="notice-item">恭喜 南京邵先生 手机137****5349 获得华为P30手机一部</div>
+    <div class="notice-item">恭喜 南京赵先生 手机173****6619 获得华为P30手机一部</div>
+</div>
+<script type="text/javascript" src="roller_left.js"></script>
+<script>
+
+    window.onload = function() {
+        testBase();
+//        testExt();
+    };
+
+    //basic
+    function testBase() {
+        new RollerLeft({
+            nodes: document.getElementById('notice').children
+        }).start();
+    }
+
+
+    //extension
+    function testExt() {
+        var RL = new RollerLeft({
+            nodes: document.getElementById('notice').children,
+            speed: 1,
+            gap: 60,
+            pauseCount:60,
+            pausePos: 16
+        });
+        RL.start();
+        setTimeout(function() {
+            console.log('time out: stop')
+            RL.stop();
+        }, 2000);
+        setTimeout(function() {
+            console.log('time out: start')
+            RL.start();
+        }, 5000);
+    }
+
+</script>
+</body>
+</html>
